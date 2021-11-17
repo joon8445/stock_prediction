@@ -31,10 +31,10 @@ class WindowClass(QMainWindow, form_class):
 
         self.chart.addWidget(self.canvas)
         yf.pdr_override()
-
+        print('override')
         sec = pdr.get_data_yahoo('005930.KS', start='2018-05-04')  # kospi = XXXXXX.KS
         msft = pdr.get_data_yahoo('MSFT', start='2018-05-04')  # kosdaq = symbol
-
+        print('get_data')
         tmp_msft = msft.drop(columns='Volume')
         tmp_msft.tail()
 
@@ -43,9 +43,7 @@ class WindowClass(QMainWindow, form_class):
         ax = self.fig.add_subplot(111)
         ax.plot(sec.index, sec.Close, 'b', label='SSEC')  # x = dateindex, y = Close,
         ax.legend(loc='best')
-        # plt.show()  # 둘의 단위가 달라서 마이크로 소프트가 상대적으로 너무 작아 제대로 나오지 않음
 
-        """fdsfasfsafdsa"""
 if __name__== "__main__" :
     app = QApplication(sys.argv)
 
