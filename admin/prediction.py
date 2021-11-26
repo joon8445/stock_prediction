@@ -1,4 +1,5 @@
 import pandas as pd
+import os
 import tensorflow as tf
 from tensorflow.keras import Sequential
 from tensorflow.keras.layers import Dense, LSTM, Dropout
@@ -8,6 +9,8 @@ def RNN(code, company):
     """RNN"""
 
     raw_df = pd.read_csv(f'./data/{code} {company}.csv')
+
+
     def MinMaxScaler(data):
         """최솟값, 최댓값 이용해 0~1 값으로 변환"""
         numerator = data - np.min(data, 0)

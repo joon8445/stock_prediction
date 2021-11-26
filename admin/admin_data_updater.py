@@ -8,7 +8,7 @@ class data_updater:
         """주식 값 저장"""
         read_yahoo(code, company).to_csv(f'./data/{code} {company}.csv', index=False)
 
-    def update_prediction(self,code, company):
+    def update_prediction(self, code, company):
         """예측 값 저장"""
         date, code, company, percentage = prediction.RNN(code, company)
         pred = {'date': [date], 'percent': [percentage]}
