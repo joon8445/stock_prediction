@@ -28,8 +28,6 @@ def RNN(code, company):
         _y = y[i + window_size]
         data_x.append(_x)
         data_y.append(_y)
-    print(_x, "->", _y)
-
 
     # 훈련용 데이터셋
     train_size = int(len(data_y) * 0.7)
@@ -53,8 +51,8 @@ def RNN(code, company):
     model.fit(train_x, train_y, epochs=100, batch_size=30)  # epochs : 학습횟수, batch_size: 훈련데이터 갯수
     pred_y = model.predict(test_x)
 
-    predict_price_tommorow = raw_df.close.iloc[-1] * pred_y[-1] / dfy.close.iloc[-1][0]
-    predict_price_today = raw_df.close.iloc[-2] * pred_y[-2] / dfy.close.iloc[-2][0]
+    predict_price_tommorow = (raw_df.close.iloc[-1] * pred_y[-1] / dfy.close.iloc[-1])[0]
+    predict_price_today = (raw_df.close.iloc[-2] * pred_y[-2] / dfy.close.iloc[-2])[0]
 
     percentage = str((predict_price_tommorow/predict_price_today-1) * 100 )+ '%'
     date = raw_df.date.iloc[-1]
