@@ -39,7 +39,7 @@
      <item>
       <widget class="QLabel" name="label_2">
        <property name="text">
-        <string>DQN/PG/AC/A2C + LSTM/CNN</string>
+        <string>LSTM/RNN</string>
        </property>
       </widget>
      </item>
@@ -85,22 +85,22 @@
        </property>
        <item>
         <property name="text">
-         <string>삼성전자</string>
+         <string>005930 삼성전자</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>sk하이닉스</string>
+         <string>000660 SK하이닉스</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>네이버</string>
+         <string>035420 NAVER</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>카카오</string>
+         <string>035720 카카오</string>
         </property>
        </item>
       </widget>
