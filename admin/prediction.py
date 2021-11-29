@@ -1,6 +1,4 @@
 import pandas as pd
-import os
-import tensorflow as tf
 from tensorflow.keras import Sequential
 from tensorflow.keras.layers import Dense, LSTM, Dropout
 import numpy as np
@@ -57,7 +55,8 @@ def RNN(code, company):
     predict_price_tommorow = (raw_df.close.iloc[-1] * pred_y[-1] / dfy.close.iloc[-1])[0]
     predict_price_today = (raw_df.close.iloc[-2] * pred_y[-2] / dfy.close.iloc[-2])[0]
 
-    percentage = str((predict_price_tommorow/predict_price_today-1) * 100 )+ '%'
+    percentage = round(((predict_price_tommorow/predict_price_today-1) * 100), 3)
+    percentage = str(percentage)+'%'
     date = raw_df.date.iloc[-1]
 
     return (date, code, company, percentage)
