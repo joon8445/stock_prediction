@@ -18,5 +18,5 @@ if __name__ == '__main__':
             else:
                 updater.update_prediction(code, company)
         else:
+            updater.init_prediction(code, company)
             updater.update_prediction(code, company)
-

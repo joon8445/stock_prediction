@@ -10,8 +10,10 @@ class data_updater:
 
     def update_prediction(self, code, company):
         """예측 값 저장"""
-        date, code, company, percentage = prediction.RNN(code, company)
-        pred = {'date': [date], 'percent': [percentage]}
+
+        date, code, company, pred_cnn = prediction.CNN(code, company)
+        date, code, company, pred_rnn = prediction.RNN(code, company)
+        pred = {'date': [date], 'RNN': [pred_rnn], 'CNN':[pred_cnn]}
         pred_data = pd.DataFrame(pred)
         file = f'./data/{code}_{company}_pred.csv'
         if not os.path.exists(file):
@@ -20,8 +22,9 @@ class data_updater:
             pred_data.to_csv(file, index=False, mode='a', encoding='utf-8-sig', header=False)
 
     def init_prediction(self, code, company):
-        date, code, company, percentage = prediction.RNN(code, company, True)
-        pred = {'date': [date], 'percent': [percentage]}
+        date, code, company, pred_rnn = prediction.RNN(code, company, True)
+        date, code, company, pred_cnn = prediction.CNN(code, company, True)
+        pred = {'date': [date], 'RNN': [pred_rnn], 'CNN':[pred_cnn]}
         pred_data = pd.DataFrame(pred)
         file = f'./data/{code}_{company}_pred.csv'
         if not os.path.exists(file):

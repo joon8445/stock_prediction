@@ -25,9 +25,10 @@ class WindowClass(QMainWindow, form_class):
         combo = combo.split(' ')
         code = combo[0]
         company = combo[1]
-        RNN = user_prediction.load_predict(code, company)
+        RNN = user_prediction.load_RNN(code, company)
+        CNN = user_prediction.load_CNN(code, company)
         self.prediction_1.append(RNN)
-        # self.prediction_2.append(prediction_2)
+        self.prediction_2.append(CNN)
         self.canvas = FigureCanvas(self.fig)
 
         self.chart.addWidget(self.canvas)
