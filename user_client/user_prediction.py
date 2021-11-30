@@ -12,13 +12,18 @@ def load_predict(code,company):
         predict_price_RNN = predict.percent.iloc[-1]
 
 
-        prediction_1 = str(predict_date) + ' 종가 : '+ str(real_price) + '\n다음 거래일 종가 증감률 예측 : '+str(predict_price_RNN)
+        prediction_1 = str(predict_date) + ' 종가 : '+ str(real_price)
+        prediction_1 += '\n----------------------------------'
+        prediction_1+= '\n다음 거래일 종가 증감률 예측 : '+str(predict_price_RNN)
+
 
         if len(predict) > 1:
             predict_price_RNN_1 = predict.percent.iloc[-2]
             real_price_1 = stock.close.iloc[-2]
             real_price_percent = round((real_price_1 / real_price - 1) * 100, 3)
+            prediction_1 += '\n----------------------------------'
             prediction_1 += '\n이전 거래일 종가 증감률 예측 : ' + str(predict_price_RNN_1)
+            prediction_1 += '\n----------------------------------'
             prediction_1 += '\n이전 거래일 실제 종가 증감률 : ' + str(real_price_percent)+'%'
 
 
