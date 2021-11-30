@@ -15,9 +15,8 @@ if __name__ == '__main__':
             stock = pd.read_csv(stock_file)
             if predict.date.iloc[-1] == stock.date.iloc[-1]:
                 print('already predicted')
-            else :
+            else:
                 updater.update_prediction(code, company)
         else:
             updater.update_prediction(code, company)
 
-"""run"""

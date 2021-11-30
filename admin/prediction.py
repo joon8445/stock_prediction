@@ -3,10 +3,12 @@ from tensorflow.keras import Sequential
 from tensorflow.keras.layers import Dense, LSTM, Dropout
 import numpy as np
 
-def RNN(code, company):
+def RNN(code, company, init=False):
     """RNN"""
 
     raw_df = pd.read_csv(f'./data/{code} {company}.csv')
+    if init:
+        raw_df = raw_df[0:-2]
 
 
     def MinMaxScaler(data):
@@ -62,9 +64,5 @@ def RNN(code, company):
     return (date, code, company, percentage)
 def CNN():
     """CNN"""
-
-    #return ('예측값, 종목명',...)
-def DNN():
-    """DNN"""
 
     #return ('예측값, 종목명',...)
