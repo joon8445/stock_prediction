@@ -2,10 +2,6 @@ import pandas as pd
 from tensorflow.keras import Sequential
 from tensorflow.keras.layers import Dense, LSTM, Dropout
 import numpy as np
-from keras.models import Sequential
-from keras.layers import Dense
-from keras.layers import Flatten
-from keras.layers import Dropout
 from keras.layers import LSTM
 from keras.models import Sequential
 from keras.layers import Dense
@@ -142,15 +138,10 @@ def CNN(code, company, init = False):
     X_train, y_train = X[int(len(X) * rel_test_len):], y[int(len(X) * rel_test_len):]
     X.shape
 
-    model = Sequential()
-    model.add(LSTM(64, activation=None, input_shape=(10, 4), return_sequences=True))
-    model.add(LSTM(32, activation=None, return_sequences=True))
-    model.add(Flatten())
-    model.add(Dense(100, activation=None))
-    model.add(Dense(1, activation='sigmoid'))
-    model.compile(loss='mse', optimizer='adam')
+
     model = Sequential()
     model.add(Conv1D(filters=128, kernel_size=3, activation='relu', input_shape=(10, 4)))
+    model.add(MaxPooling1D(pool_size=2))
     model.add(Conv1D(filters=64, kernel_size=3, activation='relu'))
     model.add(MaxPooling1D(pool_size=2))
     model.add(Flatten())

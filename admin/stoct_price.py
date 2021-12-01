@@ -2,8 +2,6 @@ import pandas as pd
 from datetime import datetime
 
 
-def load_stock_pricrea():
-    """야후 파이낸스에서 주식값 불러오기"""
 
 def read_yahoo(code, company):
     """Yahoo Finance에서 주식 시세를 읽어서 데이터프레임으로 반환"""

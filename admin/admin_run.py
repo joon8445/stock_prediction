@@ -3,7 +3,7 @@ import os
 import pandas as pd
 
 if __name__ == '__main__':
-    stock_list = {'005930': '삼성전자', '000660': 'SK하이닉스', '035420': 'NAVER', '035720': '카카오'}
+    stock_list = {'005930': '삼성전자', '000660': 'SK하이닉스', '035420': 'NAVER', '035720': '카카오', '005380': '현대자동차'}
     updater = data_updater()
     for code, company in stock_list.items():
         print(code, company)
