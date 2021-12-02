@@ -154,6 +154,11 @@ p, li { white-space: pre-wrap; }
          <string>035720 카카오</string>
         </property>
        </item>
+       <item>
+        <property name="text">
+         <string>005380 현대자동차</string>
+        </property>
+       </item>
       </widget>
      </item>
      <item>
